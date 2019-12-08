@@ -1,6 +1,6 @@
 #!/bin/bash
-source_path="/f/Wipro/bootstrap"
-dest_path="/f/Wipro/copy"
+source_path="/tmp/bootstrap"
+dest_path="/opt/local/bin"
 
 check_file(){
 	echo "Check File"
@@ -51,7 +51,8 @@ do
 done 
 }
 
-activated_products="ifastbase,desktop,sftp,hello"
+#activated_products="ifastbase,desktop,sftp,hello"
+echo $activated_products
 IFS=',' read -r -a array <<< "$activated_products"
 
 for element in "${array[@]}"
@@ -81,13 +82,29 @@ do
               execute "setup_fundservtrading"
               
 		          ;;
+	       nscc)
+		          
+              echo "$element"
+              execute "setup_nscc"
+              	  ;;
+	       rdsp)
+		          
+              echo "$element"
+              execute "setup_rdsp"
+              
+		          ;;
 	       swifttrading)
 		          
               echo "$element"
-              execute "setup_fundservfilesgit"
+              execute "setup_swifttrading"
               
 		          ;;
-
+	       altnetwork)
+		          
+              echo "$element"
+              execute "setup_altnetwork"
+              
+		          ;;
 	       sftp)
 		          
               echo "$element"
